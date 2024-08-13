@@ -1,0 +1,799 @@
+@font-face {
+    font-family: Retropix;
+    src: url(retropix.ttf);
+}
+
+@font-face {
+    font-family: 'Awesome Lathusca';
+    src: url(Awesome\ Lathusca.ttf);
+}
+
+@font-face {
+    font-family: Garet;
+    src: url(Garet-Book.ttf);
+}
+
+@font-face {
+    font-family: Brasika;
+    src: url(brasika-display-trial.otf);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,p {
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    font-family: 'Awesome Lathusca';
+    font-size: 40px;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+img {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-image: linear-gradient(to right, #FABFD4 , #F1729F);
+    padding: 1vh;
+}
+
+header h2 {
+    font-family: 'Awesome Lathusca';
+}
+
+.headleft {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    font-size: 25px;
+}
+
+.headleft img {
+    width: 40px;
+}
+
+.headright {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    color: white;
+}
+
+.headright p {
+    font-family: Retropix;
+}
+
+@media only screen and (max-width: 450px) {
+
+    .headright p {
+        font-size: 20px;
+    }
+}
+
+.headbutton {
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 15px;
+    background-color: #fcdee900;
+    color: white;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.headbutton:hover {
+    background-color: #FCDEE9;
+    color: #FF7BAA;
+}
+
+
+#all {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.title img {
+    width: 600px;
+}
+
+.squarebg {
+    background-color: #FAFAEC;
+    opacity: 1;
+    background-image:  linear-gradient(#ffffff 5px, transparent 2.3000000000000003px), linear-gradient(to right, #ffffff 5px, #FAFAEC 2.3000000000000003px);
+    background-size: 46px 46px;
+}
+
+#aboutme {
+    display: flex;
+    justify-content: center;
+}
+
+.aboutmecontent {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.aboutmecontentleft {
+    display: flex;
+    flex-direction: column;
+    /* background-color: green; */
+    width: 900px;
+}
+
+/* ABOUTMEDESC1 */
+
+.aboutmedesc1 h2 {
+    font-family: Brasika;
+    font-size: 55px;
+}
+
+.aboutmedesc1 p {
+    font-size: 26px;
+    font-family: Garet;
+    font-weight: 650;
+    text-align: justify;
+}
+
+/* ABOUTMEDESC1 */
+
+/* ABOUTMEDESC2 */
+
+.aboutmedesc2 h2 {
+    font-family: 'Awesome Lathusca';
+    font-size: 65px;
+}
+
+.amdspec {
+    padding: 10px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.amdspec p {
+    font-size: 26px;
+    font-family: Garet;
+    font-weight: 600;
+    text-align: left;
+}
+
+.amdorange {
+    color: #FBA47A;
+}
+
+.amdyellow {
+    color: #F6CA61;
+}
+
+/* ABOUTMEDESC2 */
+
+
+.aboutmecontentright {
+    display: flex;
+    align-items: end;
+    /* background-color: greenyellow; */
+}
+
+.aboutmecontentright img {
+    max-width: 450px;
+}
+
+.aboutmebutton {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 8px;
+}
+
+@media only screen and (max-width: 1440px) {
+    
+    .aboutmedesc1 p {
+        width: 800px;
+    }
+
+    .aboutmecontentleft {
+        width: 900px;
+    }
+}
+
+@media only screen and (max-width: 1290px) {
+    
+    .aboutmedesc1 p {
+        width: 600px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 60px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 25px;
+        width: 600px;
+    }
+    
+    .aboutmecontentright img {
+        width: 380px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+
+    .aboutmedesc1 h2 {
+        font-size: 45px;
+    }
+    
+    .aboutmedesc1 p {
+        font-size: 20px;
+        width: 450px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 60px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 19px;
+        width: 450px;
+    }
+    
+    .aboutmecontentright img {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .aboutmedesc1 h2 {
+        font-size: 45px;
+    }
+    
+    .aboutmedesc1 p {
+        font-size: 20px;
+        width: 420px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 60px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 17px;
+        width: 420px;
+    }
+    
+    .aboutmecontentright img {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .aboutmedesc1 h2 {
+        font-size: 35px;
+    }
+    
+    .aboutmedesc1 p {
+        font-size: 15px;
+        width: 300px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 40px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 15px;
+        width: 300px;
+    }
+    
+    .aboutmecontentright img {
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .aboutmedesc1 h2 {
+        font-size: 30px;
+    }
+    
+    .aboutmedesc1 p {
+        font-size: 13px;
+        width: 250px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 35px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 13px;
+        width: 250px;
+    }
+    
+    .aboutmecontentright img {
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    .aboutmedesc1 h2 {
+        font-size: 20px;
+    }
+    
+    .aboutmedesc1 p {
+        font-size: 10px;
+        width: 200px;
+    }
+
+    .aboutmedesc2 h2 {
+        font-size: 25px;
+    }
+
+    .aboutmedesc2 p {
+        font-size: 10px;
+        width: 150px;
+    }
+    
+    .aboutmecontentright img {
+        width: 150px;
+    }
+}
+
+.myprocontent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    padding: 0px 20px;
+}
+
+.mplabel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(white, #FAF6B7);
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 3px;
+    cursor: pointer;
+    transform: translateY(25%);
+    z-index: 2;
+
+    transition: background-image 0.5s ease-in-out;
+}
+
+.mplabel::before {
+    content: '-';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-60%);
+    font-size: 1.5em;
+    opacity: 0;
+}
+
+.myprobutton.active .mplabel::before {
+    opacity: 1;
+}
+
+.mplabelcontent {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-image: linear-gradient(white, #FAF6B7);
+    border-radius: 00px 00px 20px 20px;
+    border-style: solid;
+    border-width: 3px;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.myprobutton.active .mplabelcontent {
+    max-height: 1200px;
+    padding: 35px 20px 20px;
+}
+
+.mplabelcontent img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 80%;
+    max-width: 380px;
+    border-radius: 10%;
+    cursor: pointer;
+
+    transition: filter 0.3s;
+}
+
+.mplabelcontent img:hover {
+    filter: brightness(0.5); /* Adjust the brightness for a subtle effect */
+}
+
+.myprobutton p {
+    font-family: 'Awesome Lathusca';
+}
+
+.mppink {
+    border-color: #FF7BAA;
+}
+
+.mplabel.mppink:hover,
+.myprobutton.active .mplabel.mppink {
+    background-image: linear-gradient(#FF7BAA, #FF7BAA);
+}
+
+.mpyellow {
+    border-color: #F6CA61;
+}
+
+.mplabel.mpyellow:hover,
+.myprobutton.active .mplabel.mpyellow {
+    background-image: linear-gradient(#F6CA61, #F6CA61);
+}
+
+.mpcyan {
+    border-color: #96CECC;
+}
+
+.mplabel.mpcyan:hover,
+.myprobutton.active .mplabel.mpcyan {
+    background-image: linear-gradient(#96CECC, #96CECC);
+}
+
+.mporange {
+    border-color: #FBA47A;
+}
+
+.mplabel.mporange:hover,
+.myprobutton.active .mplabel.mporange {
+    background-image: linear-gradient(#FBA47A, #FBA47A);
+}
+
+.mppurple {
+    border-color: #E9A3D5;
+}
+
+.mplabel.mppurple:hover,
+.myprobutton.active .mplabel.mppurple {
+    background-image: linear-gradient(#E9A3D5, #E9A3D5);
+}
+
+footer {
+    flex-shrink: 0;
+    display: flex;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+footer p {
+    font-family: Garet;
+    font-weight: 900;
+}
+
+#footleft {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#footleft img {
+    width: 200px;
+}
+
+.footsocial {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social p {
+    text-decoration: underline;
+}
+
+#footright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footright img {
+    width: 300px;
+}
+
+.fa {
+    font-size:24px;
+}
+
+
+@media only screen and (max-width: 850px) {
+
+    #footright img {
+        display: none;
+    }
+
+    #footer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 35px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    #myprojects .title img {
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    #myprojects .title img {
+        width: 380px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    
+    .social {
+        font-size: 12px;
+    }
+    
+}
+
+@media only screen and (max-width: 500px) {
+    
+    #footleft img {
+        width: 150px;
+    }
+    
+}
+
+@media only screen and (max-width: 450px) {
+    #footleft img {
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    #myprojects .title img {
+        width: 300px;
+    }
+
+    .social {
+        font-size: 12px;
+    }
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Hide overflow to ensure centering */
+    background-color: rgba(0,0,0,0.9); 
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%; /* Ensure image doesn't overflow modal */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Left and right buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    user-select: none;
+    z-index: 1001; /* Ensure buttons are above image */
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 10px;
+}
+
+/* Position the "prev button" to the left */
+.prev {
+    left: 10px;
+}
+
+/* Hover effect for the buttons */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 10px;
+}
+
+#modalImage {
+    transition: transform 0.3s ease;
+}
+
+.prev, .next {
+    opacity: 0.3; /* Set low opacity by default */
+    transition: opacity 0.3s ease; /* Smooth transition when opacity changes */
+}
+
+.prev:hover, .next:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+.close {
+    opacity: 0.3; /* Set low opacity by default */
+    transition: opacity 0.3s ease; /* Smooth transition when opacity changes */
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5px;
+}
+
+.close:hover {
+    opacity: 1; /* Full opacity on hover */
+}
