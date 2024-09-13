@@ -54,7 +54,7 @@
                                 <div class="mySlides fade">
                                     <div class="aboutmedesc1">
                                         <h2><span style="color: #E9A3D5;">H</span><span style="color: #FBA47A;">i</span><span style="color: #F6CA61;">,</span> <span style="color: #96CECC;">I'</span><span style="color: #E9A3D5;">m</span> <span style="color: #FF7BAA;">B</span><span style="color: #96CECC;">e</span><span style="color: #F6CA61;">a</span><span style="color: #96CECC;">!</span></h2>
-                                        <p>I am a self-taught designer for seven months already, I'm dedicated to continuous learning, and confident on my creativity. I consistently seek opportunities for improvement and thrive on having new challenges to expand my skills and knowledge in design.</p>
+                                        <p>I am a self-taught designer, I'm dedicated to continuous learning, and confident on my creativity. I consistently seek opportunities for improvement and thrive on having new challenges to expand my skills and knowledge in design.</p>
                                     </div>
                                 </div>
                             
@@ -136,6 +136,7 @@
                             <img src="assets/Org pubmats/Happy Birthday bkd officers & staff (1).png" alt="">
                             <img src="assets/Org pubmats/Happy new year BKD.jpg" alt="">
                             <img src="assets/Org pubmats/Merry Christmas bkd.png" alt="">
+                            <img src="assets/Org pubmats/love.jpeg" alt="">
                         </div>    
                     </div>     
 
@@ -304,194 +305,120 @@
         }
     </script>
 
-    <script>
-        let modal = document.getElementById("imageModal");
-        let modalImg = document.getElementById("modalImage");
-        let images = document.querySelectorAll(".mplabelcontent img");
-        let closeBtn = document.querySelector(".close");
-        let currentIndex;
-        let scale = 1;
-        let isDragging = false;
-        let startX, startY;
 
-        // Add CSS transition for smooth scaling
-        modalImg.style.transition = "transform 0.3s ease";
 
-        // Open image modal
-        images.forEach((img, index) => {
-            img.onclick = function() {
-                modal.style.display = "flex";
-                modalImg.src = this.src;
-                currentIndex = index;
-                document.body.style.overflow = "hidden"; // Disable background scrolling
-                scale = 1; // Reset scale when opening a new image
-                modalImg.style.transform = `scale(${scale})`;
-                modalImg.style.transformOrigin = "center center"; // Reset transform origin
-            };
-        });
+<script>
+    let modal = document.getElementById("imageModal");
+    let modalImg = document.getElementById("modalImage");
+    let images = document.querySelectorAll(".mplabelcontent img");
+    let closeBtn = document.querySelector(".close");
+    let currentIndex;
+    let isDragging = false;
+    let startX, startY;
 
-        // Close image modal
-        closeBtn.onclick = function() {
+    // Open image modal
+    images.forEach((img, index) => {
+        img.onclick = function() {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            currentIndex = index;
+            document.body.style.overflow = "hidden"; // Disable background scrolling
+        };
+    });
+
+    // Close image modal
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+        document.body.style.overflow = ""; // Enable background scrolling
+    };
+
+    // Previous image
+    function showPrevImage() {
+        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+        modalImg.src = images[currentIndex].src;
+    }
+
+    // Next image
+    function showNextImage() {
+        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+        modalImg.src = images[currentIndex].src;
+    }
+
+    document.querySelector(".prev").onclick = showPrevImage;
+    document.querySelector(".next").onclick = showNextImage;
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target === modal) {
             modal.style.display = "none";
             document.body.style.overflow = ""; // Enable background scrolling
-        };
-
-        // Previous image
-        function showPrevImage() {
-            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-            modalImg.src = images[currentIndex].src;
-            scale = 1; // Reset scale when changing images
-            modalImg.style.transform = `scale(${scale})`;
-            modalImg.style.transformOrigin = "center center"; // Reset transform origin
         }
+    };
 
-        // Next image
-        function showNextImage() {
-            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-            modalImg.src = images[currentIndex].src;
-            scale = 1; // Reset scale when changing images
-            modalImg.style.transform = `scale(${scale})`;
-            modalImg.style.transformOrigin = "center center"; // Reset transform origin
+    // Switch images using left and right arrow keys
+    window.addEventListener('keydown', (e) => {
+        if (modal.style.display === "flex") {
+            if (e.key === "ArrowLeft") {
+                showPrevImage();
+            } else if (e.key === "ArrowRight") {
+                showNextImage();
+            }
         }
+    });
+</script>
 
-        document.querySelector(".prev").onclick = showPrevImage;
-        document.querySelector(".next").onclick = showNextImage;
+<script>
+    let touchStartX, touchStartY, touchEndX, touchEndY;
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = ""; // Enable background scrolling
+    modalImg.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 1) return; // Ignore multi-touch
+
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+
+        // Prevent default touch behavior (like scrolling)
+        e.preventDefault();
+    });
+
+    modalImg.addEventListener('touchmove', (e) => {
+        if (!touchStartX || !touchStartY || e.touches.length > 1) return;
+
+        touchEndX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY;
+
+        // Prevent default touch behavior (like scrolling)
+        e.preventDefault();
+    });
+
+    modalImg.addEventListener('touchend', (e) => {
+        if (!touchStartX || !touchStartY || !touchEndX || !touchEndY) return;
+
+        let diffX = touchStartX - touchEndX;
+        let diffY = touchStartY - touchEndY;
+
+        if (Math.abs(diffX) > Math.abs(diffY)) { // Horizontal swipe
+            if (diffX > 50) { 
+                // Swipe left - show next image
+                document.querySelector(".next").click();
+            } else if (diffX < -50) {
+                // Swipe right - show previous image
+                document.querySelector(".prev").click();
             }
-        };
+        }
+        
+        // Reset values
+        touchStartX = null;
+        touchStartY = null;
+        touchEndX = null;
+        touchEndY = null;
 
-        // Zoom in/out with mouse wheel
-        modalImg.addEventListener('wheel', function(e) {
-            e.preventDefault();
-            const rect = modalImg.getBoundingClientRect();
-            const offsetY = e.clientY - rect.top;  // Y coordinate within the image
+        // Prevent default touch behavior (like scrolling)
+        e.preventDefault();
+    });
+</script>
 
-            // Calculate new transform origin (horizontal is always center, vertical based on cursor position)
-            const originY = (offsetY / rect.height) * 100;
-
-            // Update scale and transform origin smoothly
-            requestAnimationFrame(() => {
-                modalImg.style.transformOrigin = `center ${originY}%`;
-
-                if (e.deltaY < 0) {
-                    // Scroll up - Zoom in
-                    scale = Math.min(scale + 0.1, 4); // Max zoom in level
-                } else {
-                    // Scroll down - Zoom out
-                    scale = Math.max(scale - 0.1, 1); // Min zoom out level
-                }
-                modalImg.style.transform = `scale(${scale})`;
-            });
-        });
-
-        // Handle dragging
-        modalImg.addEventListener('mousedown', (e) => {
-            if (scale > 1) { // Only enable dragging when zoomed in
-                isDragging = true;
-                startX = e.clientX;
-                startY = e.clientY;
-                modalImg.style.transition = 'none'; // Disable transition during drag
-            }
-        });
-
-        window.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                const rect = modalImg.getBoundingClientRect();
-                const dx = e.clientX - startX;
-                const dy = e.clientY - startY;
-                
-                // Update position of image
-                const transform = window.getComputedStyle(modalImg).transform;
-                const matrix = new WebKitCSSMatrix(transform);
-                
-                modalImg.style.transform = `translate(${matrix.m41 + dx}px, ${matrix.m42 + dy}px) scale(${scale})`;
-                
-                startX = e.clientX;
-                startY = e.clientY;
-            }
-        });
-
-        window.addEventListener('mouseup', () => {
-            if (isDragging) {
-                isDragging = false;
-                modalImg.style.transition = 'transform 0.3s ease'; // Re-enable transition after drag
-            }
-        });
-
-        // Prevent default drag behavior
-        modalImg.addEventListener('dragstart', (e) => {
-            e.preventDefault();
-        });
-
-        // Switch images using left and right arrow keys
-        window.addEventListener('keydown', (e) => {
-            if (modal.style.display === "flex") {
-                if (e.key === "ArrowLeft") {
-                    showPrevImage();
-                } else if (e.key === "ArrowRight") {
-                    showNextImage();
-                }
-            }
-        });
-    </script>
-
-    <script>
-        let touchStartX, touchStartY, touchEndX, touchEndY;
-
-        modalImg.addEventListener('touchstart', (e) => {
-            if (e.touches.length > 1) return; // Ignore multi-touch
-
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-
-            // Prevent default touch behavior (like scrolling)
-            e.preventDefault();
-        });
-
-        modalImg.addEventListener('touchmove', (e) => {
-            if (!touchStartX || !touchStartY || e.touches.length > 1) return;
-
-            touchEndX = e.touches[0].clientX;
-            touchEndY = e.touches[0].clientY;
-
-            // Prevent default touch behavior (like scrolling)
-            e.preventDefault();
-        });
-
-        modalImg.addEventListener('touchend', (e) => {
-            if (!touchStartX || !touchStartY || !touchEndX || !touchEndY) return;
-
-            let diffX = touchStartX - touchEndX;
-            let diffY = touchStartY - touchEndY;
-
-            if (Math.abs(diffX) > Math.abs(diffY)) { // Horizontal swipe
-                if (diffX > 50) { 
-                    // Swipe left - show next image
-                    document.querySelector(".next").click();
-                } else if (diffX < -50) {
-                    // Swipe right - show previous image
-                    document.querySelector(".prev").click();
-                }
-            }
-            
-            // Reset values
-            touchStartX = null;
-            touchStartY = null;
-            touchEndX = null;
-            touchEndY = null;
-
-            // Prevent default touch behavior (like scrolling)
-            e.preventDefault();
-        });
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
         // Add click event listener to all .mplabelcontent elements
         const labelContents = document.querySelectorAll('.mplabelcontent');
         labelContents.forEach(labelContent => {
@@ -500,7 +427,8 @@
             });
         });
     });
-    </script>
+</script>
+
 </body>
 
 </html>
